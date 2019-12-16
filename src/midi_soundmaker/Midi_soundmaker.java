@@ -2,20 +2,25 @@ package midi_soundmaker;
 
 import javax.sound.midi.*; 
 import java.util.*; 
+import javax.swing.SwingUtilities;
 
 public class Midi_soundmaker {
+	
+	static int numOfNotes = 0;
 
 	public Midi_soundmaker() {
 		
 			}
 
 	public static void main(String[] args) {
+		UI ui = new UI();
+		SwingUtilities.invokeLater(ui);
+		
 		System.out.println("Enter the number of notes to be played: "); 
         Scanner in = new Scanner(System.in); 
-        int numOfNotes = in.nextInt(); 
+        numOfNotes = in.nextInt(); 
   
-        Midi_soundmaker player = new Midi_soundmaker(); 
-        player.setUpPlayer(numOfNotes);
+       
 
 	}
 	public void setUpPlayer(int numOfNotes) 
@@ -65,7 +70,7 @@ public class Midi_soundmaker {
                 // Exit the program when sequencer has stopped playing. 
                 if (!sequencer.isRunning()) { 
                     sequencer.close(); 
-                    System.exit(1); 
+                    break;
                 } 
             } 
         } 
