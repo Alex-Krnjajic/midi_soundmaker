@@ -94,6 +94,7 @@ public class UI extends JFrame implements KeyListener {
 			Midi_soundmaker.notes.clear();
 			counter = 0;
 			UI.LabelLeft.setText("amount: 0");
+			noteString = "notes ";
 
 		}
 
